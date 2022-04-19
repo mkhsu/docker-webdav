@@ -47,9 +47,7 @@ RUN set -ex; \
     ln -s ../conf-available/dav.conf "conf/conf-enabled"; \
     ln -s ../sites-available/default.conf "conf/sites-enabled"; \
     # Install openssl if we need to generate a self-signed certificate.
-    apk add --no-cache openssl; \
-    printf '%s\n' "AddDefaultCharset utf-8" \
-        >> "conf/httpd.conf"
+    apk add --no-cache openssl
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 EXPOSE 443/tcp
